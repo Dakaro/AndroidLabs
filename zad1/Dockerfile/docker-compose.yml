@@ -1,0 +1,8 @@
+name: kontenerTestowy
+version: "3.8"
+services:
+  aplikacja:
+    tty: true
+    build:
+     context: .
+     dockerfile: Dockerfile
