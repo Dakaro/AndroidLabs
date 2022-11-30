@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <layout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/FragmentList"
+        android:name="FragmentList"
+    android:layout_gravity="bottom" >
+
+    <data>
+        <variable
+            name="Product1"
+            type="com.example.todolist.ui.main.MainViewModel" />
+        <variable
+            name="Product2"
+            type="com.example.todolist.ui.main.MainViewModel" />
+    </data>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginVertical="30dp"
+        android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:layerType="software"
+        android:text='@{" "+Product1.name+" "+Product1.date+" "+Product1.desc+" "+Product1.status+" "}'
+        />
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:text='@{" "+Product2.name+" "+Product2.date+" "+Product2.desc+" "+Product2.status+" "}'
+        />
+    </LinearLayout>
+
+
+</layout>
+
