@@ -7,36 +7,34 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.zakupy.R
 import com.example.zakupy.databinding.FragmentDashboardBinding
+import com.example.zakupy.ui.home.ProductAdapter
 
 class DashboardFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        val view: View = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        recyclerView = view.findViewById(R.id.recyclerViewShop)
 
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = ShopAdapter()
+
+        return view
+
+
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
     }
 }

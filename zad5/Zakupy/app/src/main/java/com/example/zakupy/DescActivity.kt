@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.example.zakupy.ui.dashboard.Shopcart
 
 class DescActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +19,12 @@ class DescActivity : AppCompatActivity() {
 
         backButton.setOnClickListener {
             onBackPressed()
+        }
+
+        var addButton = findViewById<Button>(R.id.addButton)
+
+        addButton.setOnClickListener {
+            Shopcart.addProduct( productDetails.text.toString() )
         }
 
 
