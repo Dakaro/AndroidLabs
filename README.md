@@ -17,3 +17,8 @@ Na ocenę 5. Mam nadzieję, że wrzucenie dzień po terminie nie obniży znaczą
 Na ocene 4.0, tydzien po terminie \
 Jest wszystko (ale nie wiem czy dobrze) poza usuwaniem (swipe) i SQL \
 Jeszcze będę poprawiał to zadanie, bo chcę zrobić wszystko
+
+### Zadanie 5
+Na ocene 3.0, tydzien po terminie
+(oczywiscie będą dalsze usprawnienia)
+
