@@ -19,6 +19,6 @@ Jest wszystko (ale nie wiem czy dobrze) poza usuwaniem (swipe) i SQL \
 Jeszcze będę poprawiał to zadanie, bo chcę zrobić wszystko
 
 ### Zadanie 5
-Na ocene 3.0, tydzien po terminie
-(oczywiscie będą dalsze usprawnienia)
+Na ocene 5.0, tydzien po terminie \
+Nie działa póki co tylko usuwanie, bo produkt nie znika tak jakbym tego chciał 
 
