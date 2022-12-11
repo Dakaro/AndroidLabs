@@ -23,6 +23,6 @@ Na ocene 5.0, tydzien po terminie \
 Nie działa póki co tylko usuwanie, bo produkt nie znika tak jakbym tego chciał 
 
 ### Zadanie 6
-Na ocene 3.0 \ 
-Po prostu do zadania 5 dodałem modele \ 
+Na ocene 3.0 \
+Po prostu do zadania 5 dodałem modele     
 dodatkowo skonfigurowałem room ale nie wykorzystuje w aplikacji tych modeli na tym etapie
