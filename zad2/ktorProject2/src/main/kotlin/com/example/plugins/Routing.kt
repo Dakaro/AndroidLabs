@@ -12,11 +12,11 @@ import io.ktor.server.request.*
 import io.ktor.server.util.*
 import io.ktor.server.plugins.contentnegotiation.*
 
-
 fun Application.configureRouting() {
 
     routing {
         get {
+      //      call.respondText("PING")
             call.respond(FreeMarkerContent("index.ftl", mapOf("products" to dao.allProducts())))
         }
         post {
@@ -57,14 +57,15 @@ fun Application.configureRouting() {
         /// CATEGORY
 
         get("/categories") {
+           // call.respondText("PING")
             call.respond(FreeMarkerContent("index.ftl", mapOf("categories" to dao.allCategories())))
         }
         post ("/categories") {
             val formParameters = call.receiveParameters()
             val name = formParameters.getOrFail("name")
-            val liquid = formParameters.getOrFail("liquid")
-            val smelly = formParameters.getOrFail("smelly")
-            val category  = dao.addNewCategory(name, liquid.toBoolean(), smelly.toBoolean())
+            val liquid = formParameters.getOrFail("type")
+            val countable = formParameters.getOrFail("eco")
+            val category  = dao.addNewCategory(name, liquid.toBoolean(), countable.toBoolean())
             call.respondRedirect("/category/${category?.id}")
         }
         get("/categories/{id}") {
@@ -82,9 +83,9 @@ fun Application.configureRouting() {
             when (formParameters.getOrFail("_action")) {
                 "update" -> {
                     val name = formParameters.getOrFail("name")
-                    val liquid = formParameters.getOrFail("liquid")
-                    val smelly = formParameters.getOrFail("smelly")
-                    dao.editCategory(id, name, smelly.toBoolean(), smelly.toBoolean())
+                    val liquid = formParameters.getOrFail("type")
+                    val countable = formParameters.getOrFail("eco")
+                    dao.editCategory(id, name, countable.toBoolean(), countable.toBoolean())
                     call.respondRedirect("/categories/$id")
                 }
                 "delete" -> {

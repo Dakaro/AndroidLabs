@@ -12,8 +12,8 @@ object DatabaseFactory {
         val jdbcURL = "jdbc:h2:file:./build/db"
         val database = Database.connect(jdbcURL, driverClassName)
         transaction(database) {
+            SchemaUtils.dropDatabase("Products", "Categories");
             SchemaUtils.create(Products, Categories)
-
         }
     }
 

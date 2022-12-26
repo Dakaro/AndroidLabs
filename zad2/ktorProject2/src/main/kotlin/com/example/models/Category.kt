@@ -6,13 +6,13 @@ import kotlinx.serialization.*
 
 
 @Serializable
-data class Category(val id: Int, val name: String, val liquid: Boolean, val smelly: Boolean)
+data class Category(val id: Int, val name: String, val type: Boolean, val eco: Boolean)
 
 object Categories : Table() {
     val id = integer("id").autoIncrement()
     val name = varchar("name", 128)
-    val liquid = bool("liquid")
-    val smelly = bool("smelly")
+    val type = bool("type")
+    val eco = bool("eco")
 
     override val primaryKey = PrimaryKey(id)
 }

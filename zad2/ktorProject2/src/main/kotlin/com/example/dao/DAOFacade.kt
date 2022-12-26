@@ -10,7 +10,7 @@ interface DAOFacade {
     suspend fun deleteProduct(id: Int): Boolean
     suspend fun allCategories(): List<Category>
     suspend fun category(id: Int): Category?
-    suspend fun addNewCategory( name: String, liquid: Boolean, smelly: Boolean): Category?
-    suspend fun editCategory(id: Int, name: String, liquid: Boolean, smelly: Boolean): Boolean
+    suspend fun addNewCategory( name: String, type: Boolean, eco: Boolean): Category?
+    suspend fun editCategory(id: Int, name: String, type: Boolean, eco: Boolean): Boolean
     suspend fun deleteCategory(id: Int): Boolean
 }

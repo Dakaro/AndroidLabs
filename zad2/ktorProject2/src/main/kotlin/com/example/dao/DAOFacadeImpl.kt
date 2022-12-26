@@ -53,8 +53,8 @@ class DAOFacadeImpl : DAOFacade {
     private fun resultRowToCategory(row: ResultRow) = Category(
         id = row[Categories.id],
         name = row[Categories.name],
-        liquid = row[Categories.liquid],
-        smelly = row[Categories.smelly],
+        type = row[Categories.type],
+        eco = row[Categories.eco],
     )
 
     override suspend fun allCategories(): List<Category> = dbQuery {
@@ -68,20 +68,20 @@ class DAOFacadeImpl : DAOFacade {
             .singleOrNull()
     }
 
-    override suspend fun addNewCategory(name: String, liquid: Boolean, smelly: Boolean): Category? = dbQuery {
+    override suspend fun addNewCategory(name: String, type: Boolean, eco: Boolean): Category? = dbQuery {
         val insertStatement = Categories.insert {
             it[Categories.name] = name
-            it[Categories.liquid] = liquid
-            it[Categories.smelly] = smelly
+            it[Categories.type] = type
+            it[Categories.eco] = eco
         }
         insertStatement.resultedValues?.singleOrNull()?.let(::resultRowToCategory)
     }
 
-    override suspend fun editCategory(id: Int, name: String, liquid: Boolean, smelly: Boolean): Boolean = dbQuery {
+    override suspend fun editCategory(id: Int, name: String, type: Boolean, eco: Boolean): Boolean = dbQuery {
         Categories.update({ Categories.id eq id }) {
             it[Categories.name] = name
-            it[Categories.liquid] = liquid
-            it[Categories.smelly] = smelly
+            it[Categories.type] = type
+            it[Categories.eco] = eco
         } > 0
     }
 
@@ -94,10 +94,14 @@ class DAOFacadeImpl : DAOFacade {
 val dao: DAOFacade = DAOFacadeImpl().apply {
 
     runBlocking {
+
         if(allProducts().isEmpty()) { // NIE JEST EMPTY TRZEBA POGRZEBAC W BAZIE I WYWALICP OPRZEDNEI REKODRY
                                         // DODATKWOOW JSON JEST TYLKO DO TEKSTU I TRZEBA ZRUTOWAC INTY
-            addNewCategory("Fruits", true, true)
-            addNewProduct("apple", 1, "Poland")
+            addNewCategory("Fridge", false, false)
+            addNewCategory("TV", true, false)
+            addNewProduct("LG-fridge", 1, "Japan")
+            addNewProduct("Amica-fridge", 1, "Japan")
+
         }
     }
 }
