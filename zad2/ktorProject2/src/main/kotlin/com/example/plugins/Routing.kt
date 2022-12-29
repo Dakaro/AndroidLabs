@@ -83,9 +83,9 @@ fun Application.configureRouting() {
             when (formParameters.getOrFail("_action")) {
                 "update" -> {
                     val name = formParameters.getOrFail("name")
-                    val liquid = formParameters.getOrFail("type")
-                    val countable = formParameters.getOrFail("eco")
-                    dao.editCategory(id, name, countable.toBoolean(), countable.toBoolean())
+                    val type = formParameters.getOrFail("type")
+                    val eco = formParameters.getOrFail("eco")
+                    dao.editCategory(id, name, type.toBoolean(), eco.toBoolean())
                     call.respondRedirect("/categories/$id")
                 }
                 "delete" -> {

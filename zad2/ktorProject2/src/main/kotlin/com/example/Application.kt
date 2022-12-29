@@ -11,7 +11,6 @@ import io.ktor.http.HttpMethod.Companion.Delete
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.serialization.gson.*
 import java.text.DateFormat
-import io.ktor.server.plugins.cors.*
 
 
 fun main() {
@@ -24,11 +23,5 @@ fun Application.module() {
     configureHTTP()
     configureSerialization()
     configureRouting()
-    install(CORS){
-        anyHost()
-        allowMethod(HttpMethod.Delete)
-        allowMethod(HttpMethod.Put)
-        allowMethod(HttpMethod.Get)
-        allowMethod(HttpMethod.Post)
-    }
+
 }
