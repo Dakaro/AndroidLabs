@@ -20,7 +20,7 @@ object RetrofitClient {
             .callTimeout(10, TimeUnit.SECONDS)
 
         var retrofit: Retrofit = retrofit2.Retrofit.Builder()
-            .baseUrl("https://7dfd-194-26-201-128.eu.ngrok.io")
+            .baseUrl("https://7d11-194-26-201-128.eu.ngrok.io")
             //.addConverterFactory(GsonConverterFactory.create())
             .client(httpClient.build())
             .build()

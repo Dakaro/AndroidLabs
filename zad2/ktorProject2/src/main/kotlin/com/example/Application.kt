@@ -20,8 +20,7 @@ fun main() {
 
 fun Application.module() {
     DatabaseFactory.init()
-    configureHTTP()
+    //configureHTTP()
     configureSerialization()
     configureRouting()
-
 }

@@ -63,9 +63,9 @@ fun Application.configureRouting() {
         post ("/categories") {
             val formParameters = call.receiveParameters()
             val name = formParameters.getOrFail("name")
-            val liquid = formParameters.getOrFail("type")
-            val countable = formParameters.getOrFail("eco")
-            val category  = dao.addNewCategory(name, liquid.toBoolean(), countable.toBoolean())
+            val type = formParameters.getOrFail("type")
+            val eco = formParameters.getOrFail("eco")
+            val category  = dao.addNewCategory(name, type.toBoolean(), eco.toBoolean())
             call.respondRedirect("/category/${category?.id}")
         }
         get("/categories/{id}") {
